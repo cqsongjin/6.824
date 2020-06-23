@@ -7,7 +7,7 @@ package main
 //
 
 import "fmt"
-import "../mr"
+import "mr"
 import "plugin"
 import "os"
 import "log"
@@ -36,8 +36,10 @@ func main() {
 	// accumulate the intermediate Map output.
 	//
 	intermediate := []mr.KeyValue{}
+	log.Println(os.Args[2:])
 	for _, filename := range os.Args[2:] {
 		file, err := os.Open(filename)
+		log.Println(filename)
 		if err != nil {
 			log.Fatalf("cannot open %v", filename)
 		}
